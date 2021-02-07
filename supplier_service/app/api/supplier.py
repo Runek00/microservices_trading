@@ -29,7 +29,7 @@ def get_sample_data():
 data_generator = get_sample_data()
 
 
-async def get_data():
+async def supply_data():
     dt = datetime.now()
     if not url.startswith('http'):
         data = next(data_generator)
