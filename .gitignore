@@ -1,2 +1,5 @@
 /.vscode
 /docker-compose.yml
+supplier_service/app/api/__pycache__
+supplier_service/app/__pycache__
+supplier_service/app/api/cache.py

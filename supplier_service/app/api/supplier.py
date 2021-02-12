@@ -1,7 +1,7 @@
 import httpx
 import random
 from app.api.secret_code import secret_code
-from models import PriceIn
+from app.api.models import PriceIn
 from datetime import datetime
 
 

@@ -1,15 +1,26 @@
 from fastapi import APIRouter, HTTPException
 from models import PriceParams
 from app.api import db_manager
-from pandas import DataFrame
+from app.api.db import Cryptos
+from typing import List, Dict
 
 data_contr = APIRouter()
 
 
-@data_contr.get('/', response_model=DataFrame)
+@data_contr.get('/', response_model=List[Dict])
 async def get_prices(payload: PriceParams):
-    prices = await db_manager.get_prices(payload)
+    prices_raw = await db_manager.get_prices(payload)
+    prices = await to_dto(prices_raw)
     if not prices:
         raise HTTPException(status_code=404,
                             detail='Perhaps the archives are incomplete!')
     return prices
+
+
+async def to_dto(result: List[Cryptos]):
+    variables = result[0].keys()
+    dto = [
+            {j: getattr(i, j) for j in variables}
+            for i in result
+        ]
+    return dto

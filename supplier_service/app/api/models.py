@@ -15,5 +15,5 @@ class PriceOut(PriceIn):
 
 class PriceParams(BaseModel):
     name_list: Optional[List[str]]
-    hours_back_start: int
-    hours_back_stop: int
+    start_time: datetime
+    stop_time: datetime
