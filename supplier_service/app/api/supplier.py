@@ -14,14 +14,12 @@ def get_sample_data():
     data = []
     for o in ocur:
         for b in bcur:
-            d = PriceIn()
-            d.symbol = o+b
-            d.price = 1
+            d = PriceIn(name=o+b, price=1, time=False)
             data.append(d)
     while True:
         for d in data:
             d.price += ((random.random()-0.5)/5)
-            if d.symbol in ['qusdt', 'wusdt', 'eusdt']:
+            if d.name in ['qusdt', 'wusdt', 'eusdt']:
                 d.price += 0.01
         yield data
 
@@ -35,7 +33,7 @@ async def supply_data():
         data = next(data_generator)
     else:
         data = await httpx.get(url).json()
-    data = list(filter(lambda x: x.symbol.endswith('usdt'), data))
+    data = list(filter(lambda x: x.name.endswith('usdt'), data))
     for datapoint in data:
         datapoint.time = dt
-    print(data)
+    return data
