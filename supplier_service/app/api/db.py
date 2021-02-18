@@ -8,12 +8,12 @@ DATABASE_URI = os.getenv('DATABASE_URI')
 engine = create_engine(DATABASE_URI)
 metadata = MetaData()
 
-Cryptos = Table(
+cryptos = Table(
     'cryptos',
     metadata,
     Column('id', Integer, primary_key=True),
-    Column('symbol', String(10)),
-    Column('b_price', Float),
+    Column('name', String(10)),
+    Column('price', Float),
     Column('time', DateTime)
 )
 

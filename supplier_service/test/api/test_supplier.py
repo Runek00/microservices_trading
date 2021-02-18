@@ -1,6 +1,6 @@
 import unittest
-import asyncio
 from app.api.supplier import get_sample_data, supply_data
+import asyncio  # FIXME: use unittest.IsolatedAsyncioTestCase
 from types import GeneratorType
 
 
