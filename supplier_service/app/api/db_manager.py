@@ -13,6 +13,6 @@ async def get_prices(params: PriceParams):
     query = cryptos.select(cryptos.c.time >= params.start_time) \
         .where(cryptos.c.time <= params.stop_time)
     if params.name_list is not None and len(params.name_list) > 0:
-        query = query.where(cryptos.c.symbol in params.name_list)
+        query = query.where(cryptos.c.name in params.name_list)
     result = await database.fetch_all(query=query)
     return result
