@@ -27,8 +27,11 @@ class TestDbTableInsert(unittest.IsolatedAsyncioTestCase):
         await db.database.connect()
 
     async def testInsert(self):
-        query = db.cryptos.insert().values(name='test', price=6.28,
-                                           time=datetime.now())
+        query = db.cryptos.insert().values(
+            name='test',
+            price=6.28,
+            time=datetime.now()
+        )
         result = await db.database.execute(query=query)
         self.assertIsInstance(result, int)
 
@@ -48,9 +51,18 @@ class TestDbTableBulkInsert(unittest.IsolatedAsyncioTestCase):
         await db.database.connect()
 
     async def testBulkInsert(self):
-        values = [{"name": 'test1', "price": 6.28, "time": datetime.now()},
-                  {"name": 'test2', "price": 3.14,
-                   "time": datetime(2011, 11, 11)}]
+        values = [
+            {
+                "name": 'test1',
+                "price": 6.28,
+                "time": datetime.now()
+            },
+            {
+                "name": 'test2',
+                "price": 3.14,
+                "time": datetime(2011, 11, 11)
+            }
+        ]
         query = db.cryptos.insert()
         result = await db.database.execute_many(query=query, values=values)
         self.assertIsNone(result)
@@ -69,9 +81,18 @@ class TestDbTableSelect(unittest.IsolatedAsyncioTestCase):
 
     async def asyncSetUp(self):
         await db.database.connect()
-        values = [{"name": 'test1', "price": 6.28, "time": datetime.now()},
-                  {"name": 'test2', "price": 3.14,
-                   "time": datetime(2011, 11, 11)}]
+        values = [
+            {
+                "name": 'test1',
+                "price": 6.28,
+                "time": datetime.now()
+            },
+            {
+                "name": 'test2',
+                "price": 3.14,
+                "time": datetime(2011, 11, 11)
+            }
+        ]
         query = db.cryptos.insert()
         await db.database.execute_many(query=query, values=values)
 
@@ -102,9 +123,18 @@ class TestDbTableDelete(unittest.IsolatedAsyncioTestCase):
 
     async def asyncSetUp(self):
         await db.database.connect()
-        values = [{"name": 'test1', "price": 6.28, "time": datetime.now()},
-                  {"name": 'test2', "price": 3.14,
-                   "time": datetime(2011, 11, 11)}]
+        values = [
+            {
+                "name": 'test1',
+                "price": 6.28,
+                "time": datetime.now()
+            },
+            {
+                "name": 'test2',
+                "price": 3.14,
+                "time": datetime(2011, 11, 11)
+            }
+        ]
         query = db.cryptos.insert()
         await db.database.execute_many(query=query, values=values)
 

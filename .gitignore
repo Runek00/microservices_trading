@@ -2,8 +2,15 @@ supplier_service/app/api/cache.py
 /.vscode
 /docker-compose.yml
 /.env
-supplier_service/app/api/__pycache__/
+supplier_service/__pycache__/
 supplier_service/app/__pycache__/
+supplier_service/app/api/__pycache__/
 supplier_service/test/__pycache__/
 supplier_service/test/api/__pycache__/
+analysis_service/__pycache__/
+analysis_service/app/api/__pycache__/
+analysis_service/test/__pycache__/
+analysis_service/test/api/__pycache__/
+/__pycache__/
 __init__.py
+analysis_service/.vscode

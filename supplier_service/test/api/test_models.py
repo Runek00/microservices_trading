@@ -69,7 +69,7 @@ class TestModels(unittest.TestCase):
         }
         dict_wrong_time = {
             "name_list": ["test1", "test2", "test3"],
-            "start_time": True,
+            "start_time": datetime(2013, 12, 11, 23, 22, 21),
             "stop_time": ['ddd', 3]
         }
         dict_corr_no_list = {
