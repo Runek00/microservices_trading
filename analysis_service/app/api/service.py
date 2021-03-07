@@ -20,9 +20,8 @@ async def get_data():
                          data={
                              "start_time": start_time,
                              "end_time": end_time
-                             }) \
-        .json()
-    return DataFrame(r)
+                             })
+    return DataFrame(r.json())
 
 
 async def send_buy(signals: List[str]):

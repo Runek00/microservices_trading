@@ -15,6 +15,10 @@ class TestService(unittest.IsolatedAsyncioTestCase):
             {"tc1": 2, "tc2": "two"}
         ]
         '''
+        respMock.json = lambda: [
+            {"tc1": 1, "tc2": "one"},
+            {"tc1": 2, "tc2": "two"}
+        ]
         with patch('httpx._api.request',
                    new=AsyncMock(return_value=respMock)) as test_post:
             df = await service.get_data()
