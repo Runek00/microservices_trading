@@ -14,3 +14,5 @@ analysis_service/test/api/__pycache__/
 /__pycache__/
 __init__.py
 analysis_service/.vscode
+supplier_service/.env
+microservices_plan.md

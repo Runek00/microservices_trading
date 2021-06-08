@@ -12,7 +12,7 @@ metadata.create_all(engine)
 app = FastAPI(docs_url="/api/v1/supplier/docs")
 
 
-@sched.scheduled_job('interval', seconds=10)
+@sched.scheduled_job('interval', hours=1)
 def get_data():
     asyncio.run(supplier.supply_data())
 

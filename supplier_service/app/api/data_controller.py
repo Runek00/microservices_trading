@@ -1,7 +1,6 @@
 from fastapi import APIRouter, HTTPException
-from models import PriceParams
+from app.api.models import PriceParams
 from app.api import db_manager
-from app.api.db import cryptos
 from typing import List, Dict
 
 data_contr = APIRouter()
@@ -19,7 +18,7 @@ async def get_prices(payload: PriceParams):
     return prices
 
 
-async def to_dto(result: List[cryptos]):
+async def to_dto(result: List[Dict]):
     variables = result[0].keys()
     dto = [
             {j: getattr(i, j) for j in variables}
