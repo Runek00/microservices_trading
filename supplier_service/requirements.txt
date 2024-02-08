@@ -1,5 +1,5 @@
 asyncpg == 0.21.0
-fastapi == 0.63.0
+fastapi == 0.109.2
 uvicorn == 0.13.3
 httpx == 0.16.1
 databases[postgresql]==0.4.1
